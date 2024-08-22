@@ -9,6 +9,16 @@ import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/Own
 contract BoxV2 is UUPSUpgradeable, OwnableUpgradeable, Initializable {
     uint256 internal number;
 
+    //@custom:oz-upgrades-unsafe-allow constructor
+    constructor() {
+        _disableInitializers();
+    }
+
+    function inialize() public initializer {
+        __Ownable_init(); //sets owner to the deployer
+        __UUPSUpgradeable_init();
+    }
+
     function setNumber(uint256 _number) external {
         number = _number;
     }
