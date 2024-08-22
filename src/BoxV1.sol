@@ -1,6 +1,6 @@
 //SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.20;
+pragma solidity 0.8.19;
 
 import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
@@ -12,7 +12,7 @@ import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/Own
 //Proxy contracts don't use a constructor
 //Proxy -> deploy implementation -> call some "initalizer" function
 
-contract BoxV1 is UUPSUpgradeable, OwnableUpgradeable, Initializable {
+contract BoxV1 is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     uint256 internal number;
 
     //@custom:oz-upgrades-unsafe-allow constructor
