@@ -6,7 +6,7 @@ import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/U
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-contract BoxV2 is UUPSUpgradeable, OwnableUpgradeable {
+contract BoxV2 is UUPSUpgradeable, OwnableUpgradeable, Initializable {
     uint256 internal number;
 
     function setNumber(uint256 _number) external {

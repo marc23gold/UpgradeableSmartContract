@@ -12,7 +12,7 @@ import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/Own
 //Proxy contracts don't use a constructor
 //Proxy -> deploy implementation -> call some "initalizer" function
 
-contract BoxV1 is UUPSUpgradeable, OwnableUpgradeable {
+contract BoxV1 is UUPSUpgradeable, OwnableUpgradeable, Initializable {
     uint256 internal number;
 
     //@custom:oz-upgrades-unsafe-allow constructor
@@ -21,7 +21,7 @@ contract BoxV1 is UUPSUpgradeable, OwnableUpgradeable {
     }
 
     function inialize() public initializer {
-        __Ownable_init(msg.sender); //sets owner to the deployer
+        __Ownable_init(); //sets owner to the deployer
         __UUPSUpgradeable_init();
     }
 
